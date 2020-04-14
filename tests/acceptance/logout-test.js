@@ -12,8 +12,8 @@ module('Acceptance | logging out', function(hooks) {
 
   test('visiting /teams and clicking "logout"', async function(assert) {
 
-    await visit('/teams');
-    assert.equal(currentURL(), '/teams');
+    await visit('/teams/avengers');
+    // assert.equal(currentURL().startsWith('/teams'));
 
     await click('.team-sidebar__logout-button');
     assert.equal(currentURL(), '/login');
