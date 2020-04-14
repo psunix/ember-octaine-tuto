@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import fetch from 'fetch';
 
 export const ALL_TEAMS = [
   {
@@ -37,7 +38,8 @@ export default class TeamsRoute extends Route {
   }
 
   async model() {
-    return ALL_TEAMS;
+    const response = await fetch('/api/teams');
+    return response.json();
   }
   
 }
